@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Milim.Service
 {
-    public class WriteReportService
+     public class WriteReportService
     {
         public static List<string> writeReport<T>(List<T> reportModel, string reportName)
         {
@@ -34,17 +34,18 @@ namespace Milim.Service
                 writer.Flush();
                 file.Add(fullPath);
 
-                string GetAttributeDisplayName(PropertyInfo property)
-                {
-                    var atts = property.GetCustomAttributes(
-                        typeof(DisplayNameAttribute), true);
-                    if (atts.Length == 0)
-                        return null;
-                    return (atts[0] as DisplayNameAttribute).DisplayName;
-                }
+                
 
                 return file;
             }
+        }
+        public static string GetAttributeDisplayName(PropertyInfo property)
+        {
+            var atts = property.GetCustomAttributes(
+                typeof(DisplayNameAttribute), true);
+            if (atts.Length == 0)
+                return null;
+            return (atts[0] as DisplayNameAttribute).DisplayName;
         }
     }
 }
