@@ -33,9 +33,6 @@ namespace Milim.Service
                 }
                 writer.Flush();
                 file.Add(fullPath);
-
-                
-
                 return file;
             }
         }
